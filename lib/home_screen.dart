@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isChangeTheme = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(bottom : 80.0),
+                padding: const EdgeInsets.only(bottom: 80.0),
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: RecommendedSection(
@@ -105,14 +106,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class RecommendedSection extends StatelessWidget {
   final bool isChange;
+
   const RecommendedSection({super.key, required this.isChange});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal : 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(
             children: [
               Text(
@@ -127,6 +130,9 @@ class RecommendedSection extends StatelessWidget {
                 Icons.more_horiz,
                 color: Colors.grey,
               ),
+              const SizedBox(
+                width: 5,
+              )
             ],
           ),
         ),
@@ -176,14 +182,17 @@ class RecommendedSection extends StatelessWidget {
 class TrendingForUSection extends StatelessWidget {
   final bool isChange;
   final Function onTap;
-  const TrendingForUSection({super.key, required this.onTap, required this.isChange});
+
+  const TrendingForUSection(
+      {super.key, required this.onTap, required this.isChange});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal : 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(
             children: [
               Text(
@@ -198,6 +207,9 @@ class TrendingForUSection extends StatelessWidget {
                 Icons.more_horiz,
                 color: Colors.grey,
               ),
+              const SizedBox(
+                width: 5,
+              )
             ],
           ),
         ),
@@ -208,85 +220,94 @@ class TrendingForUSection extends StatelessWidget {
           onTap: () {
             onTap();
           },
-          child: Container(
-            padding: const EdgeInsets.all(
-              15.0,
-            ),
-            height: 290,
-            width: 370,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(
-                15,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 5.0),
+            child: Container(
+              padding: const EdgeInsets.all(
+                15.0,
               ),
-              image: const DecorationImage(
-                image: NetworkImage(
-                    "https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/16/10/vswardrobe.jpg?width=968"
+              height: 290,
+              width: 360,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
                 ),
-                fit: BoxFit.cover,
+                image: const DecorationImage(
+                  image: NetworkImage(
+                      "https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/16/10/vswardrobe.jpg?width=968"),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            child: const Column(
-              children: [
-                Row(
-                  children: [
-                    Spacer(),
-                    CircleAvatar(
-                      backgroundColor: Colors.pinkAccent,
-                      child: Icon(Icons.favorite_outline, color: Colors.white,),
-                    ),
-                  ],
-                ),
-                Spacer(),
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "NEW 2023",
-                          style: TextStyle(
-                              fontSize: 17.0, color: Colors.lightGreen, fontWeight: FontWeight.w900),
+              child: const Column(
+                children: [
+                  Row(
+                    children: [
+                      Spacer(),
+                      CircleAvatar(
+                        backgroundColor: Colors.pinkAccent,
+                        child: Icon(
+                          Icons.favorite_outline,
+                          color: Colors.white,
                         ),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Text(
-                          "Modern Outfits\nCollection",
-                          style: TextStyle(
-                            fontSize: 17.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "NEW 2023",
+                            style: TextStyle(
+                                fontSize: 17.0,
+                                color: Colors.lightGreen,
+                                fontWeight: FontWeight.w900),
                           ),
-                        ),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            CircleAvatar(
-                              radius: 13.0,
-                              backgroundImage: NetworkImage(
-                                'https://www.whatsappimages.in/wp-content/uploads/2021/02/Beautiful-Girls-Whatsapp-DP-Profile-Images-pics-for-download-300x300.gif',
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          Text(
+                            "Modern Outfits\nCollection",
+                            style: TextStyle(
+                              fontSize: 17.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              CircleAvatar(
+                                radius: 13.0,
+                                backgroundImage: NetworkImage(
+                                  'https://www.whatsappimages.in/wp-content/uploads/2021/02/Beautiful-Girls-Whatsapp-DP-Profile-Images-pics-for-download-300x300.gif',
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 5.0,
-                            ),
-                            Text(
-                              "Lily Sue",
-                              style: TextStyle(
-                                  fontSize: 15.0, color: Colors.greenAccent, fontWeight: FontWeight.w800),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                  ],
-                )
-              ],
+                              SizedBox(
+                                width: 5.0,
+                              ),
+                              Text(
+                                "Lily Sue",
+                                style: TextStyle(
+                                    fontSize: 15.0,
+                                    color: Colors.greenAccent,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -298,7 +319,9 @@ class TrendingForUSection extends StatelessWidget {
 class ProfileSection extends StatelessWidget {
   final Function onChange;
   final bool isChange;
-  const ProfileSection({super.key, required this.onChange, required this.isChange});
+
+  const ProfileSection(
+      {super.key, required this.onChange, required this.isChange});
 
   @override
   Widget build(BuildContext context) {
