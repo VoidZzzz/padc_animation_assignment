@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 const kAnimationDuration = Duration(milliseconds: 1000);
 
 class ExplicitFavourite extends StatefulWidget {
+  const ExplicitFavourite({super.key});
+
   @override
   State<ExplicitFavourite> createState() => _ExplicitFavouriteState();
 }

@@ -20,6 +20,7 @@ class _DetailScreenState extends State<DetailScreen> {
     SizeChart("XL", false),
     SizeChart("XXL", false)
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,12 +60,12 @@ class _DetailScreenState extends State<DetailScreen> {
                         const SizedBox(
                           height: 25.0,
                         ),
-                        SizeSection(
+                        SizeSelection(
                           list: sizeChartList,
-                          onSelect: (index){
+                          onSelect: (index) {
                             setState(() {
-                              // sizeChartList[index].isSelected = true;
-                              sizeChartList[index].isSelected = !sizeChartList[index].isSelected;
+                              sizeChartList[index].isSelected =
+                                  !sizeChartList[index].isSelected;
                             });
                           },
                         ),
@@ -81,10 +82,12 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 }
 
-class SizeSection extends StatelessWidget {
+class SizeSelection extends StatelessWidget {
   final List<SizeChart> list;
   final Function(int) onSelect;
-  const SizeSection({super.key, required this.list,required this.onSelect});
+
+  const SizeSelection({super.key, required this.list, required this.onSelect});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -117,14 +120,16 @@ class SizeSection extends StatelessWidget {
             children: list
                 .map(
                   (e) => GestureDetector(
-                onTap: (){
-                  onSelect(list.indexOf(e));
-                },
-                child: Size(
-                  sizeChart: e,
-                ),
-              ),
-            )
+                    onTap: () {
+                      onSelect(
+                        list.indexOf(e),
+                      );
+                    },
+                    child: Size(
+                      sizeChart: e,
+                    ),
+                  ),
+                )
                 .toList(),
           ),
         ],
@@ -135,6 +140,7 @@ class SizeSection extends StatelessWidget {
 
 class Size extends StatelessWidget {
   final SizeChart sizeChart;
+
   const Size({super.key, required this.sizeChart});
 
   @override
@@ -174,7 +180,10 @@ class Size extends StatelessWidget {
 class DescriptionSection extends StatelessWidget {
   final Function onTap;
   final bool isExpand;
-  const DescriptionSection({super.key, required this.onTap, required this.isExpand});
+
+  const DescriptionSection(
+      {super.key, required this.onTap, required this.isExpand});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -258,7 +267,9 @@ class TitleSection extends StatelessWidget {
 
 class AppbarView extends StatelessWidget {
   final Function onTapBack;
+
   const AppbarView({super.key, required this.onTapBack});
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -322,5 +333,6 @@ class AppbarView extends StatelessWidget {
 class SizeChart {
   String size;
   bool isSelected;
+
   SizeChart(this.size, this.isSelected);
 }

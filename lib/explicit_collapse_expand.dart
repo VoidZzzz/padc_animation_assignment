@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const kAnimationDuration = Duration(milliseconds: 1000);
 class ExplicitCollapseExpand extends StatefulWidget {
   final Function onTap;
-  ExplicitCollapseExpand({required this.onTap});
+  const ExplicitCollapseExpand({super.key, required this.onTap});
 
   @override
   State<ExplicitCollapseExpand> createState() => _ExplicitCollapseExpandState();
